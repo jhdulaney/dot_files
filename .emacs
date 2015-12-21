@@ -41,6 +41,8 @@
 (setq tramp-default-method "ssh")
 
 ;; Sane keybindings
+(global-set-key (kbd ": doctor") 'doctor)
+(global-set-key (kbd ": calc") 'calc)
 (define-key evil-normal-state-map [escape] 'keyboard-quit)
 (define-key evil-visual-state-map [escape] 'keyboard-quit)
 (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
