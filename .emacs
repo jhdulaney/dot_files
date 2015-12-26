@@ -1,3 +1,18 @@
+;; Scrolling like in my vimrc
+
+(setq scroll-margin 5)
+(setq scroll-step 1)
+;; -------
+
+;; tramp fiddly-bits
+;;(add-to-list 'load-path "/usr/local/share/info/tramp")
+;;(require 'tramp)
+;;(setq tramp-default-method "ssh")
+
+(add-to-list 'load-path "~/.emacs.d/elpa/powerline/")
+(require 'powerline)
+(powerline-default-theme)
+
 (add-to-list 'load-path "~/.emacs.d/elpa/nxml-mode-20041004/rng-auto.el")
 (add-to-list 'auto-mode-alist
 	     (cons (concat "\\." (regexp-opt '("xml" "xsd" "sch" "rng" "xslt" "svg" "rss") t) "\\'")
@@ -33,12 +48,6 @@
 (require 'pymacs)
 (require 'python)
 (add-hook 'python-mode-hook 'anaconda-mode)
-
-(add-to-list 'load-path "/usr/local/share/info/tramp")
-(require 'tramp)
-
-;; tramp fiddly-bits
-(setq tramp-default-method "ssh")
 
 ;; Sane keybindings
 (global-set-key (kbd ": doctor") 'doctor)
@@ -108,8 +117,4 @@
 ;; ---------
 
 
-;; Scrolling like in my vimrc
 
-(setq scroll-margin 5)
-(setq scroll-step 1)
-;; -------
