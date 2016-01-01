@@ -5,6 +5,9 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+xmodmap -e 'clear Lock'
+xmodmap -e 'keycode 66 = Escape'
+
 # MPD daemon start (if no other user instance exists)
 [ ! -s ~/.config/mpd/pid ] && mpd
 
@@ -33,11 +36,9 @@ alias music='ncmpcpp'
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
-# User specific aliases and functions
 [ -r /home/jdulaney/.byobu/prompt ] && . /home/jdulaney/.byobu/prompt   #byobu-prompt#
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
-
 
