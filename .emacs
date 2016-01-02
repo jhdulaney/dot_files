@@ -4,10 +4,19 @@
 (setq scroll-step 1)
 ;; -------
 
-;; tramp fiddly-bits
-;;(add-to-list 'load-path "/usr/local/share/info/tramp")
-;;(require 'tramp)
-;;(setq tramp-default-method "ssh")
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
+
+
+
+
+
+(add-to-list 'load-path "~/.emacs.d/elpa/bash-completion-20150514.728/")
+(require 'bash-completion)
+(bash-completion-setup)
+
+
+(require 'tramp)
+(setq tramp-default-method "ssh")
 
 (add-to-list 'load-path "~/.emacs.d/elpa/powerline/")
 (require 'powerline)
@@ -50,6 +59,10 @@
 (add-hook 'python-mode-hook 'anaconda-mode)
 
 ;; Sane keybindings
+(global-set-key (kbd ": list-packages") 'list-packages)
+(global-set-key (kbd ": package-install") 'package-install)
+(global-set-key (kbd ": bp") 'previous-buffer)
+(global-set-key (kbd ": bn") 'next-buffer)
 (global-set-key (kbd ": doctor") 'doctor)
 (global-set-key (kbd ": calc") 'calc)
 (define-key evil-normal-state-map [escape] 'keyboard-quit)
@@ -117,4 +130,20 @@
 ;; ---------
 
 
+
+;; show column number and line number
+(dolist (mode '(column-number-mode line-number-mode))
+  (when (fboundp mode) (funcall mode t)))
+
+(dolist (mode-hook '(text-mode-hook prog-mode-hook))
+  (add-hook mode-hook
+	    (lambda ()
+	      (linum-mode 1))))
+
+;; show parenthesis match
+(show-paren-mode 1)
+(setq show-paren-style 'expression)
+
+;; Toggle line highlighting in all buffers
+(global-hl-line-mode t)
 
